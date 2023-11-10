@@ -1,0 +1,106 @@
+/* add lil pictures :)
+ * put in local memory
+ * switch contrast?
+*/ 
+
+:root {
+	--A1: #FAEDCD;
+	--A: #FFE0B5;
+	--B: #D4AA7D;
+	--C: #B87D48;
+	--D: #9E6240;
+	--E: #644536;
+}
+
+body {
+	background-color: var(--A);
+	color: var(--E);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.day-col {
+	width: calc(100% / 7);
+	float: left;
+}
+
+.day-col .title {
+	text-align: center;
+}
+
+.day-col .content {
+	position: relative;
+	height: 500px;
+	border: 1px solid var(--E);
+	border-right: none;
+}
+
+.day-col:last-child .content {
+	border-right: 1px solid var(--E);
+}
+
+.event-item {
+	position: absolute;
+	width: calc(100% - 2px);
+	padding-left: 2px;
+	font-size: 11px;
+	overflow-x: auto;
+	background: var(--C);
+	color: var(--A1);
+	cursor: pointer;
+}
+
+#new_event_button {
+	float: right;
+	height: 30px;
+}
+
+#add_event_form,
+#event-delete {
+	position: absolute;
+	top: 150px;
+	left: calc(50% - 250px);
+	right: calc(50% - 250px);
+	width: 500px;
+	height: auto;
+	padding: 5px;
+	background: var(--A1);
+	border: 2px solid var(--D);
+	box-shadow: 1px 1px 3px var(--E);
+}
+
+/* Using GRID to arrange the form :) */
+#inputForm,
+#event-delete {
+	display: grid;
+	grid-template-columns: [labels] auto [inputs] 1fr;
+	grid-auto-flow: row;
+	grid-gap: .9em .5em;
+	padding: 2em;
+}
+
+#inputForm > label,
+#event-delete > label {
+	grid-column: labels;
+	grid-row: auto;
+}
+
+#inputForm > input,
+#inputForm > select,
+#inputForm > button,
+#event-delete > button {
+	grid-column: inputs;
+	grid-row: auto;
+	padding: .4em;
+	border: 0;
+	background: white;
+}
+
+#inputForm > button,
+#event-delete > button,
+button {
+	border: 0;
+	border-radius: 0.5em;
+	background: var(--B);
+	color: var(--E);
+	padding: .4em;
+}
